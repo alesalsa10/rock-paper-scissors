@@ -1,0 +1,6 @@
+input[type='image']{
+    outline: none;
+}
+.hidden{
+    display: none;
+}
