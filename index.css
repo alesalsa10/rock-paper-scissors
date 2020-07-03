@@ -4,3 +4,8 @@ input[type='image']{
 .hidden{
     display: none;
 }
+
+.row{
+    align-items: center;
+    text-align: center;
+}

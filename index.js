@@ -1,5 +1,7 @@
 const buttons = document.querySelectorAll("input");
-const inputButtons = document.getElementsByTagName('input');
+const result = document.getElementById('result');
+const myPlay = document.getElementById('myChoice');
+const compPlay = document.getElementById('computerChoice');
 
 
 function computerPlay(){
@@ -30,34 +32,57 @@ buttonsListener();
 function winner(myPlay, computerPlay){
     if (myPlay === 'rock'){
         if(computerPlay === 'scissors'){
-            console.log('You won')
+            result.innerHTML = 'You won';
         } else if (computerPlay === 'paper'){
-            console.log('You lost')
+            result.innerHTML = 'You Lost'
         } else {
-            console.log('its a draw')
+            result.innerHTML = "It's a draw"
         }
     } else if (myPlay === 'paper'){
         if(computerPlay === 'rock'){
-            console.log('you won')
+            result.innerHTML = 'You won';
         } else if (computerPlay === 'scissors'){
-            console.log('you lost ')
+            result.innerHTML = 'You lost';
         } else {
-            console.log('its a draw')
+            result.innerHTML = "It's a draw";
         }
     } else {
         if (computerPlay === 'paper'){
-            console.log('you won')
+            result.innerHTML = 'You won';
         } else if (computerPlay === 'rock'){
-            console.log('you lost')
+            result.innerHTML = 'You lost';
         } else {
-            console.log('its a draw')
+            result.innerHTML = "It's a draw";
         }
     }
 }
 
-function display(){
-    container.style.display = 'none';
+function display(myChoice, computerChoice){
+    let rockLink = 'https://www.rock-paper-scissors-game.com/i/rock.png';
+    let paperLink = 'https://www.rock-paper-scissors-game.com/i/paper.png';
+    let scissorsLink = 'https://www.rock-paper-scissors-game.com/i/scissors.png';
+
+    //make every button disappear
+    buttons.forEach(el => el.style.display = 'none');
+    //display the image of mychoise and computer choice
+    if (myChoice === 'rock'){
+        myPlay.src = rockLinkl
+    } else if (myChoice === 'paper'){
+        myPlay.src = paperLink;
+    } else{
+        myPlay.src = scissorsLink;
+    }
+
+    if (computerChoice === 'rock'){
+        compPlay.src = rockLink;
+    } else if (computerChoice === 'paper'){
+        compPlay.src = paperLink;
+    } else {
+        compPlay.src = scissorsLink;
+    }
     
 }
+
+//display();
 
 
