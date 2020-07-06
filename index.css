@@ -1,11 +1,17 @@
 input[type='image']{
     outline: none;
 }
-.hidden{
-    display: none;
-}
 
 .row{
     align-items: center;
     text-align: center;
+}
+
+.show{
+    opacity: 1;
+    transition: opacity 1000ms;
+}
+.hide{
+    opacity: 0;
+    transition: opacity 1000ms;
 }

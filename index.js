@@ -2,7 +2,14 @@ const buttons = document.querySelectorAll("input");
 const result = document.getElementById('result');
 const myPlay = document.getElementById('myChoice');
 const compPlay = document.getElementById('computerChoice');
+const resultsContainer = document.getElementById('results-container');
+const tryAgainButton = document.getElementById('try-again');
+const myScoreSelector = document.getElementById('you');
+const computerScoreSelector = document.getElementById('computer');
 
+let myScore = 0;
+let computerScore = 0;
+let hiddenDiv = resultsContainer.style.display = 'none';
 
 function computerPlay(){
     let options = ['rock', 'paper', 'scissors'];
@@ -32,26 +39,47 @@ buttonsListener();
 function winner(myPlay, computerPlay){
     if (myPlay === 'rock'){
         if(computerPlay === 'scissors'){
-            result.innerHTML = 'You won';
+            display(myPlay, computerPlay);
+            myScore ++;
+            myScoreSelector.innerHTML = myScore
+            result.innerHTML = 'You Won';
         } else if (computerPlay === 'paper'){
+            display(myPlay, computerPlay);
+            computerScore++;
+            computerScoreSelector.innerHTML = computerScore;
             result.innerHTML = 'You Lost'
         } else {
+            display(myPlay, computerPlay);
             result.innerHTML = "It's a draw"
         }
     } else if (myPlay === 'paper'){
         if(computerPlay === 'rock'){
-            result.innerHTML = 'You won';
+            display(myPlay, computerPlay);
+            myScore++;
+            myScoreSelector.innerHTML = myScore;
+            result.innerHTML = 'You Won';
         } else if (computerPlay === 'scissors'){
-            result.innerHTML = 'You lost';
+            display(myPlay, computerPlay);
+            computerScore++;
+            computerScoreSelector.innerHTML = computerScore;
+            result.innerHTML = 'You Lost';
         } else {
+            display(myPlay, computerPlay);
             result.innerHTML = "It's a draw";
         }
     } else {
         if (computerPlay === 'paper'){
-            result.innerHTML = 'You won';
+            display(myPlay, computerPlay);
+            myScore++;
+            myScoreSelector.innerHTML = myScore;
+            result.innerHTML = 'You Won';
         } else if (computerPlay === 'rock'){
-            result.innerHTML = 'You lost';
+            display(myPlay, computerPlay);
+            computerScore++;
+            computerScoreSelector.innerHTML = computerScore;
+            result.innerHTML = 'You Lost';
         } else {
+            display(myPlay, computerPlay);
             result.innerHTML = "It's a draw";
         }
     }
@@ -66,7 +94,7 @@ function display(myChoice, computerChoice){
     buttons.forEach(el => el.style.display = 'none');
     //display the image of mychoise and computer choice
     if (myChoice === 'rock'){
-        myPlay.src = rockLinkl
+        myPlay.src = rockLink
     } else if (myChoice === 'paper'){
         myPlay.src = paperLink;
     } else{
@@ -80,9 +108,19 @@ function display(myChoice, computerChoice){
     } else {
         compPlay.src = scissorsLink;
     }
-    
+    if (resultsContainer.style.display === 'none'){
+        resultsContainer.style.display = '';
+    } else {
+        resultsContainer.style.display = 'none';
+    }
 }
 
-//display();
+function tryAgain(){
+    tryAgainButton.addEventListener('click', function(){
+        resultsContainer.style.display = 'none';
+        buttons.forEach(el => el.style.display = '');
+    })
+}
+tryAgain();
 
 
